@@ -8,34 +8,32 @@
   },
   "license": "MIT",
   "homepage": "https://github.com/develrocket/my-viv#readme",
-  "main": "src/index.js",
-  "types": "src/index.js",
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "publishConfig": {
-    "main": "dist/index.mjs",
-    "types": "dist/index.d.ts",
     "sideEffects": false
   },
   "files": [
     "dist"
   ],
-  "scripts": {
-    "build": "unbuild",
-    "test": "esno tests/index.spec.js | tap-spec"
-  },
   "peerDependencies": {
     "@deck.gl/core": "~8.8.6",
     "@deck.gl/layers": "~8.8.6"
   },
   "dependencies": {
     "@math.gl/core": "^3.5.7",
-    "@vivjs/layers": "workspace:*",
-    "@vivjs/loaders": "workspace:*",
-    "math.gl": "^3.5.7"
+    "math.gl": "^3.5.7",
+    "@vivjs/layers": "git+https://github.com/develrocket/hdms-viv-layers.git",
+    "@vivjs/loaders": "git+https://github.com/develrocket/hdms-viv-loaders.git"
   },
   "unbuild": {
     "entries": [
       "src/index"
     ],
     "declaration": true
+  },
+  "scripts": {
+    "build": "unbuild",
+    "test": "esno tests/index.spec.js | tap-spec"
   }
 }
